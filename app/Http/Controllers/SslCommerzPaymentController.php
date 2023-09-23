@@ -178,7 +178,7 @@ class SslCommerzPaymentController extends Controller
     public function success(Request $request)
     {
        
-        echo "Transaction is Successful";
+       return view('success');
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
@@ -215,7 +215,7 @@ class SslCommerzPaymentController extends Controller
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
         }
-
+        
 
     }
 
