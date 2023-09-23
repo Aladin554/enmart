@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="UTF-8">
     <style type="text/css">
-        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500&family=Hanuman:wght@300;400;700&family=Hind+Siliguri:wght@400;500&family=Kanit:wght@400;500&family=Open+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500&family=Hanuman:wght@300;400;700&family=Hind+Siliguri:wght@400;500&family=Kanit:wght@400;500&family=Open+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap');
 
         * {
             box-sizing: border-box;
@@ -51,7 +51,13 @@
         .text-right {
             text-align: <?php echo $reverse_text_align; ?>;
             font-family: '<?php echo $font_family; ?>';
-        }
+        } */
+        @page {
+  width: 57mm;
+ 
+  margin-top: 20px;
+}
+
     </style>
 </head>
 
@@ -59,7 +65,7 @@
     {{-- header start --}}
     <table style="width: 100%; table-layout: fixed">
         <tr>
-            <td colspan="4"
+            <!-- <td colspan="4"
                 style="border-right: 1px solid #e4e4e4; width: 300px; color: #323232; line-height: 1.5; vertical-align: top;">
                 <p style="font-size: 15px; color: #5b5b5b; font-weight: bold; line-height: 1; vertical-align: top; ">
                     {{ localize('INVOICE') }}</p>
@@ -75,8 +81,8 @@
                         {{ optional($order->location)->name }}
                     </p>
                 @endif
-            </td>
-            <td colspan="4" align="right"
+            </td> -->
+            <td colspan="4" align="center"
                 style="width: 300px; text-align: right; padding-left: 50px; line-height: 1.5; color: #323232;">
                 <!-- <img src="{{ uploadedAsset(getSetting('favicon')) }}" alt="logo" border="0" /> -->
                 <p style="font-size: 12px;font-weight: bold; color: #5b5b5b; line-height: 1; vertical-align: top; ">
@@ -85,6 +91,17 @@
                     {{ getSetting('topbar_location') }}<br>
                     {{ localize('Phone') }}: {{ getSetting('navbar_contact_number') }}
                 </p>
+                <p style="font-size: 12px; color: #5b5b5b; line-height: 24px; vertical-align: top;">
+                    {{ localize('Invoice No') }} : {{ getSetting('order_code_prefix') }}
+                    {{ $order->orderGroup->order_code }}<br>
+                    {{ localize('Order Date') }} : {{ date('d M, Y', strtotime($order->created_at)) }}
+                </p>
+
+                @if ($order->location_id != null)
+                    <p>
+                        {{ optional($order->location)->name }}
+                    </p>
+                @endif
             </td>
         </tr>
         <tr class="visibleMobile">
@@ -103,7 +120,7 @@
                 <td height="20"></td>
             </tr>
             <tr style=" margin: 0;">
-                <td colspan="4" style="width: 300px;">
+                <td colspan="4" align="center" style="width: 300px;">
                     <p
                         style="font-size: 12px; font-weight: bold; color: #5b5b5b; line-height: 1; vertical-align: top; ">
                         {{ localize('SHIPPING INFORMATION') }}</p>
@@ -175,12 +192,12 @@
     {{-- billing and shipping end --}}
 
     {{-- item details start --}}
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable"
+    <table  border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" 
         bgcolor="#ffffff">
         <tbody>
             <tr>
                 <td>
-                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center"
+                    <table width="300" border="0" cellpadding="0" cellspacing="0" align="center"
                         class="fullTable" bgcolor="#ffffff">
                         <tbody>
                             <tr class="visibleMobile">
@@ -188,13 +205,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"
+                                    <table  border="0" cellpadding="0" cellspacing="0" align="center"
                                         class="fullPadding">
                                         <tbody>
                                             <tr>
                                                 <th style="font-size: 12px; color: #000000; font-weight: normal;
                   line-height: 1; vertical-align: top; padding: 0 10px 7px 0;"
-                                                    width="52%" align="left">
+                                                     align="left">
                                                     {{ localize('Item') }}
                                                 </th>
                                                 <th style="font-size: 12px; color: #000000; font-weight: normal;
@@ -277,7 +294,7 @@
     {{-- item details end --}}
 
     {{-- item total start --}}
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable"
+    <table  border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable"
         bgcolor="#ffffff">
         <tbody>
             <tr>
@@ -288,7 +305,7 @@
                             <tr>
                                 <td>
                                     <!-- Table Total -->
-                                    <table width="100%" border="0" cellpadding="0" cellspacing="0"
+                                    <table  border="0" cellpadding="0" cellspacing="0"
                                         align="center" class="fullPadding">
                                         <tbody>
                                             <tr>
@@ -384,7 +401,7 @@
     {{-- item total end --}}
 
     {{-- footer start --}}
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable"
+    <table  border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable"
         bgcolor="#ffffff">
 
         <tr>
@@ -399,7 +416,7 @@
                         <td height="20"></td>
                     </tr>
                     <td>
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"
+                        <table  border="0" cellpadding="0" cellspacing="0" align="center"
                             class="fullPadding">
                             <tbody>
                                 <tr>
