@@ -25,7 +25,6 @@ class SslCommerzPaymentController extends Controller
         return view('exampleHosted');
     }
 
-    
 
     public function payViaAjax(Request $request)
     {
