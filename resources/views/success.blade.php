@@ -22,6 +22,11 @@
         <!-- Your success page content here -->
         <h1 style="color: green;">Transaction is Successful</h1>
         <!-- Additional content for your success page -->
+        <div class="row">
+            <div class="col-2"><a href="/">homepage</a> </div>
+            <div class="col-2"><a href="/login">Login</a> </div>
+
+        </div>
     </div>
 </body>
 </html>
