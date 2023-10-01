@@ -16,6 +16,7 @@ class CreateOrderGroupsTable extends Migration
         Schema::create('order_groups', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->string('transaction_id')->nullable();
             $table->integer('guest_user_id')->nullable();
             $table->bigInteger('order_code');
             $table->integer('shipping_address_id')->nullable();

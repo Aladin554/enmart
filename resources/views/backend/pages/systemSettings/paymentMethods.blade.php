@@ -283,7 +283,7 @@
 
 
                         <!--SslCommerz settings-->
-                        <div class="card mb-4" id="section-5">
+                        <div class="card mb-4" id="section-7">
                             <div class="card-body">
                                 <h5 class="mb-4">{{ localize('SslCommerz Credentials') }}</h5>
                                 <input type="hidden" name="payment_methods[]" value="SslCommerz">

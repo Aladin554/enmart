@@ -124,7 +124,7 @@
             <label for="SslCommerz" class="ms-2 h6 mb-0">{{ localize('Pay with SslCommerz') }}</label>
         </div>
         <div class="radio-right text-end">
-            <img src="{{ staticAsset('frontend/pg/iyzico.svg') }}" alt="SslCommerz" class="img-fluid">
+            <img src="{{ staticAsset('frontend/pg/sslcommerz.png') }}" alt="SslCommerz" class="img-fluid" style="height: 32px; width:147px;">
         </div>
     </div>
 @endif
